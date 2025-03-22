@@ -1,6 +1,6 @@
 # qwakes
 
-Q-Hawkes process simulation and inference on stock market data.
+Software for [Q-Hawkes process](https://arxiv.org/abs/1509.07710) simulation and inference on stock market data. The package is written primarily in Go and uses the [stochadex](https://github.com/umbralcalc/stochadex) as the simulation engine which powers all of the essential tools developed in this repo.
 
 **Plan**
 
