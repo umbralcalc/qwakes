@@ -10,8 +10,6 @@ import (
 	"github.com/polygon-io/client-go/rest/models"
 )
 
-// FetchMinutelyAggs requests Polygon daily aggs from the API with
-// the given ticker and date range.
 func FetchMinutelyAggs(ticker string, from, to time.Time) ([]models.Agg, error) {
 	apiKey := os.Getenv("POLYGON_API_KEY")
 	if apiKey == "" {

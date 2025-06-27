@@ -18,7 +18,6 @@ import (
 	smithyendpoints "github.com/aws/smithy-go/endpoints"
 )
 
-// polygonEndpointResolver resolves the flatfiles endpoint from polygon.io.
 type polygonEndpointResolver struct{}
 
 func (*polygonEndpointResolver) ResolveEndpoint(
@@ -34,9 +33,6 @@ func (*polygonEndpointResolver) ResolveEndpoint(
 	}, nil
 }
 
-// DownloadDailyAggs downloads Polygon daily agg files from S3 for
-// the given ticker and date range, filters for the ticker, and writes
-// out filtered CSV files.
 func DownloadDailyAggs(ticker string, startDate, endDate time.Time) error {
 	keyId := os.Getenv("AWS_ACCESS_KEY_ID")
 	if keyId == "" {
@@ -98,8 +94,6 @@ func DownloadDailyAggs(ticker string, startDate, endDate time.Time) error {
 	return nil
 }
 
-// filterTickerFromGzip extracts lines for the given ticker from the gzip file
-// and writes them (with header) to a plain CSV file named <TICKER>_<YYYY-MM-DD>.csv
 func filterTickerFromGzip(gzFile, ticker string, date time.Time) error {
 	f, err := os.Open(gzFile)
 	if err != nil {
